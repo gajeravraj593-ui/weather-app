@@ -44,7 +44,3 @@ input.addEventListener("keypress", (e) => {
         weather(input.value);
     }
 })
-
-
-
-
