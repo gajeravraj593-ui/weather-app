@@ -1,10 +1,10 @@
-const key = "8f6890a36e17421aa59142430261004";
+const APIkey = "8f6890a36e17421aa59142430261004";
 const url = "https://api.weatherapi.com/v1/current.json?aqi=yes&q=";
 var btn = document.getElementsByClassName("sbutton")[0];
 var input = document.getElementsByClassName("searchbar")[0];
 
 async function weather(name) {
-    const response = await fetch (url + name + `&key=${key}`);
+    const response = await fetch (url + name + `&key=${APIkey}`);
     var data = await response.json();
     
     console.log(data)
@@ -33,10 +33,17 @@ async function weather(name) {
 };
 weather("ahmedabad")
 
+input.focus()
+
 btn.addEventListener("click", ()=> {
     weather(input.value)
 })
 
+input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        weather(input.value);
+    }
+})
 
 
 
